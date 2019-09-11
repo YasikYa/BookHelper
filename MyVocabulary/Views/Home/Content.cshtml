@@ -1,0 +1,20 @@
+﻿@model IEnumerable<KeyValuePair<string, int>>
+@{
+    ViewBag.Title = "Content";
+}
+
+<h2>Content</h2>
+<table>
+    <tr>
+        <td>Word</td>
+        <td>Count</td>
+    </tr>
+    @foreach(var entry in Model)
+    {
+        <tr>
+            <td>@entry.Key</td>
+            <td>@entry.Value</td>
+        </tr>
+    }
+</table>
+
