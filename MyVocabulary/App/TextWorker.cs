@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyVocabulary.Interfaces;
+using MyVocabulary.App.Factories;
 
 namespace MyVocabulary.App
 {
@@ -15,12 +16,12 @@ namespace MyVocabulary.App
         #endregion
 
         #region ctors
-        public TextWorker(IFileProcceser<string> fileProcceser)
+        public TextWorker(IFileProccessorFactory factory)
         {
-            _fileProc = fileProcceser;
+            _fileProc = factory.CreateFileProcceser();
         }
 
-        public TextWorker(IFileProcceser<string> fileProcceser, IWordValidator wordValidator) : this(fileProcceser)
+        public TextWorker(IFileProccessorFactory factory, IWordValidator wordValidator) : this(factory)
         {
             if(wordValidator != null)
             {
@@ -28,15 +29,14 @@ namespace MyVocabulary.App
             }
         }
 
-        public TextWorker(IFileProcceser<string> fileProcceser,
+        public TextWorker(IFileProccessorFactory factory,
             IWordValidator wordValidator,
-            ILemmatizator lemmatizator) : this(fileProcceser, wordValidator)
+            ILemmatizator lemmatizator) : this(factory, wordValidator)
         {
             _lemmatizator = lemmatizator;
         }
         #endregion
         
-        //TODO: Include lemmatization
         public IEnumerable<KeyValuePair<string, int>> CountWords()
         {
             Dictionary<string, int> wordsCount = new Dictionary<string, int>();
@@ -86,24 +86,24 @@ namespace MyVocabulary.App
 
         private void LemmatizeWords(Dictionary<string, int> wordsCount)
         {
-            int nonLemmaEnties;
+            int nonLemmaEntries;
             var keyWords = wordsCount.Keys.ToList();
 
             foreach(var word in keyWords)
             {
                 if (!_lemmatizator.IsLemma(word))
                 {
-                    nonLemmaEnties = wordsCount[word];
+                    nonLemmaEntries = wordsCount[word];
                     wordsCount.Remove(word);
                     string lemma = _lemmatizator.GetLemma(word);
 
                     if (wordsCount.ContainsKey(lemma))
                     {
-                        wordsCount[lemma] += nonLemmaEnties;
+                        wordsCount[lemma] += nonLemmaEntries;
                     }
                     else
                     {
-                        wordsCount.Add(lemma, nonLemmaEnties);
+                        wordsCount.Add(lemma, nonLemmaEntries);
                     }
                 }
             }

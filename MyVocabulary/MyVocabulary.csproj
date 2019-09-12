@@ -166,18 +166,20 @@
     <Content Include="Views\Home\Content.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\DefaultWordValidator.cs" />
-    <Compile Include="App\FileProcceser.cs" />
-    <Compile Include="App\Lematizator.cs" />
-    <Compile Include="App\StopwordsWordValidator.cs" />
+    <Compile Include="App\Factories\FileProcceserFactory.cs" />
+    <Compile Include="App\WordValidators\DefaultWordValidator.cs" />
+    <Compile Include="App\FileProccessers\FileProcceser.cs" />
+    <Compile Include="App\Lemmatizators\Lematizator.cs" />
+    <Compile Include="App\WordValidators\StopwordsWordValidator.cs" />
     <Compile Include="App\TextWorker.cs" />
-    <Compile Include="App\WordValidatorBase.cs" />
+    <Compile Include="App\WordValidators\WordValidatorBase.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IFileProcceser.cs" />
+    <Compile Include="Interfaces\IFileProccessorFactory.cs" />
     <Compile Include="Interfaces\ILemmatizator.cs" />
     <Compile Include="Interfaces\ITextParser.cs" />
     <Compile Include="Interfaces\IWordValidator.cs" />

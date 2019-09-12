@@ -10,6 +10,7 @@ using iText.Kernel.Pdf.Canvas.Parser;
 using MyVocabulary.Interfaces;
 using MyVocabulary.App;
 using System.IO;
+using MyVocabulary.App.Factories;
 
 namespace MyVocabulary.Controllers
 {
@@ -28,10 +29,10 @@ namespace MyVocabulary.Controllers
         {
             string filePath = SaveFile(upload);
 
-            _parser = new TextWorker(new PdfFileProcceser(filePath),
+            _parser = new TextWorker(new FileProcceserFactory(filePath),
                 new StopwordsWordValidator(new DefaultWordValidator()),
                 new Lematizator());
-            
+
             return View("Content", model: _parser.CountWords());
         }
 
