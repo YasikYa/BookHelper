@@ -1,0 +1,39 @@
+﻿@model MyVocabulary.Models.ViewModels.SignupModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <title>Signup</title>
+</head>
+<body>
+    @Html.ValidationSummary(false)
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default" })
+
+    }
+</body>
+</html>

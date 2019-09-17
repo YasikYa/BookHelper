@@ -209,11 +209,15 @@
     <Compile Include="App\WordValidators\StopwordsWordValidator.cs" />
     <Compile Include="App\TextWorker.cs" />
     <Compile Include="App\WordValidators\WordValidatorBase.cs" />
+    <Compile Include="App_Start\IdentityStartup.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccauntController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IdentityConfig\AppDbContext.cs" />
+    <Compile Include="IdentityConfig\AppUserManager.cs" />
     <Compile Include="Interfaces\IFileProcceser.cs" />
     <Compile Include="Interfaces\IFileProccessorFactory.cs" />
     <Compile Include="Interfaces\ILemmatizator.cs" />
@@ -222,6 +226,8 @@
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Extension.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\ViewModels\LoginModel.cs" />
+    <Compile Include="Models\ViewModels\SignupModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +240,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Accaunt\Login.cshtml" />
+    <Content Include="Views\Accaunt\Signup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -245,7 +253,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Stopwords\" />
     <Folder Include="Files\" />
-    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

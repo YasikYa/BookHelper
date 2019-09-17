@@ -21,6 +21,15 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Log Out", "Logout", "Accaunt")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log In", "Login", "Accaunt", new { returnUrl = Request.Url.LocalPath }, null)</li>
+                    }
+                    <li>@Html.ActionLink("Sign Up", "Signup", "Accaunt")</li>
                 </ul>
             </div>
         </div>

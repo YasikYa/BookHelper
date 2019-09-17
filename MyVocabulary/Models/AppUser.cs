@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MyVocabulary.Models
 {
-    public class AppUser
+    public class AppUser : IdentityUser
     {
+        public AppUser()
+        {
+            Files = new List<File>();
+        }
+
+        public virtual ICollection<File> Files { get; set; }
     }
 }

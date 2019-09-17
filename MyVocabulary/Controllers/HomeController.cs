@@ -18,13 +18,13 @@ namespace MyVocabulary.Controllers
     {
         ITextParser _parser;
         // GET: Home
-        public ActionResult Index(StringBuilder content)
+        public ActionResult Index()
         {
-            ViewBag.Content = content;
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Upload(HttpPostedFileBase upload)
         {
             string filePath = SaveFile(upload);
