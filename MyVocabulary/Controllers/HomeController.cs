@@ -11,12 +11,15 @@ using MyVocabulary.Interfaces;
 using MyVocabulary.App;
 using System.IO;
 using MyVocabulary.App.Factories;
+using MyVocabulary.Useful;
+using MyVocabulary.IdentityConfig;
 
 namespace MyVocabulary.Controllers
 {
     public class HomeController : Controller
     {
         ITextParser _parser;
+        AppDbContext _context;
         // GET: Home
         public ActionResult Index()
         {
@@ -32,6 +35,7 @@ namespace MyVocabulary.Controllers
             _parser = new TextWorker(new FileProcceserFactory(filePath),
                 new StopwordsWordValidator(new DefaultWordValidator()),
                 new Lematizator());
+            
 
             return View("Content", model: _parser.CountWords());
         }

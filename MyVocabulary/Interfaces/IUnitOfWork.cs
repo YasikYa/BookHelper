@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyVocabulary.Interfaces
 {
-    public interface IFileProcceser<T> 
+    interface IUnitOfWork
     {
-        T ProccesFile();
-
-        event Action<string> Proccessed;
     }
 }

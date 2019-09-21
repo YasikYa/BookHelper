@@ -25,7 +25,12 @@ namespace MyVocabulary.App.Factories
                 switch (file.Extension)
                 {
                     case ".pdf":
-                        return new PdfFileProcceser(_filePath);
+                        PdfFileProcceser fileProc = new PdfFileProcceser(_filePath);
+                        fileProc.Proccessed += delegate (string fileName)
+                        {
+                            File.Delete(fileName);
+                        };
+                        return fileProc;
                         break;
                     default:
                         return null;

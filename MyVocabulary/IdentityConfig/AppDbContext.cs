@@ -8,7 +8,7 @@ namespace MyVocabulary.IdentityConfig
     {
         public AppDbContext() : base("name=MyVocabularyConnection")
         {
-
+            Database.SetInitializer(new AppContextInitializer());
         }
 
         public static AppDbContext Create()
@@ -31,5 +31,15 @@ namespace MyVocabulary.IdentityConfig
         public DbSet<Extension> Extensions { get; set; }
 
         #endregion
+    }
+
+    public class AppContextInitializer : CreateDatabaseIfNotExists<AppDbContext>
+    {
+        protected override void Seed(AppDbContext context)
+        {
+            Extension ext = new Extension { ExtensionString = ".pdf" };
+            context.Extensions.Add(ext);
+            base.Seed(context);
+        }
     }
 }

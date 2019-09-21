@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MyVocabulary.Models.File>
+
+@{
+    ViewBag.Title = "DisplayWords";
+}
+
+<h2>YourFiles</h2>
+<table>
+    @foreach (MyVocabulary.Models.File file in Model)
+    {
+        <tr>
+            <td>@file.FileName</td>
+            <td>
+                @using(Html.BeginForm("DisplayWords","Home", new { file.FileId }))
+                {
+                    <input type="submit" value="Load" />
+                }
+                @Html.ActionLink("Delete", "DeleteFile", new { file.FileId})
+            </td>
+        </tr>
+    }
+</table>

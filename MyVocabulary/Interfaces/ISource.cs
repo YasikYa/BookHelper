@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyVocabulary.Interfaces
 {
-    public interface IFileProcceser<T> 
+    interface ISource<T> where T: class
     {
-        T ProccesFile();
-
-        event Action<string> Proccessed;
+        T Item {get;set;}
+        void Save();
     }
 }

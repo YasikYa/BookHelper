@@ -15,6 +15,8 @@ namespace MyVocabulary.App
         public string FileName { get; }
         #endregion
 
+        public event Action<string> Proccessed;
+
         public PdfFileProcceser(string path)
         {
             FileName = path;
@@ -32,10 +34,10 @@ namespace MyVocabulary.App
                 {
                     content.Append(PdfTextExtractor.GetTextFromPage(doc.GetPage(i)));
                 }
-                return content.ToString();
             }
 
-            
+            Proccessed(FileName);
+            return content.ToString();
         }
     }
 }
