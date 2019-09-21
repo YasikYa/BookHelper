@@ -7,7 +7,7 @@ namespace MyVocabulary.Models
 {
     public class WordInfo
     {
-        public string Word { get; set; }
+        public string WordString { get; set; }
 
         public int Count { get; set; }
     }

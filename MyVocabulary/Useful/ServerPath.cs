@@ -10,7 +10,7 @@ namespace MyVocabulary.Useful
     {
         public static string MapDocumentPath(string docId)
         {
-            return @"E:\Programming\WeB\MyVocabulary\MyVocabulary\Files\" + docId + ".xml";
+            return @"E:\Programming\WeB\MyVocabulary\MyVocabulary\Files\Documents\" + docId + ".xml";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<KeyValuePair<string, int>>
+﻿@using MyVocabulary.Models
+@model IEnumerable<WordInfo>
 @{
     ViewBag.Title = "Content";
     int number = 1;
@@ -15,8 +16,8 @@
     {
         <tr>
             <td>@number</td>
-            <td>@entry.Key</td>
-            <td>@entry.Value</td>
+            <td>@entry.WordString</td>
+            <td>@entry.Count</td>
         </tr>
         {
             number++;
