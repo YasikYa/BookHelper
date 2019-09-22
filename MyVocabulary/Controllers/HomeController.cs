@@ -18,6 +18,7 @@ using MyVocabulary.Models;
 
 namespace MyVocabulary.Controllers
 {
+    //TODO: create User prop
     public class HomeController : Controller
     {
         ITextParser _parser;
@@ -61,6 +62,44 @@ namespace MyVocabulary.Controllers
             source.Save();
 
             return View("Content", model: source.GetAll().ToList());
+        }
+
+        [Authorize]
+        public ActionResult DisplayFiles()
+        {
+            var userName = User.Identity.Name;
+            using(_context = new AppDbContext())
+            {
+                var user = _context.Users.First(u => u.UserName == userName);
+                var model = user.Files;
+
+                return View(model);
+            }
+        }
+
+        [Authorize]
+        public ActionResult Load(int fileId)
+        {
+            string filePath = ServerPath.MapDocumentPath(fileId.ToString());
+            WordInfoXmlSource source = new WordInfoXmlSource(filePath);
+            var model = source.GetAll().ToList();
+            return View("Content", model);
+        }
+
+        [Authorize]
+        public ActionResult Delete(int fileId)
+        {
+            string userName = User.Identity.Name;
+            using(_context = new AppDbContext())
+            {
+                var file = _context.Files.Find(fileId);
+                //var user = _context.Users.First(u => u.UserName == userName);
+                //user.Files.Remove(file);
+                _context.Files.Remove(file);
+                _context.SaveChanges();
+            }
+            System.IO.File.Delete(ServerPath.MapDocumentPath(fileId.ToString()));
+            return RedirectToAction("DisplayFiles");
         }
 
         #region helpers

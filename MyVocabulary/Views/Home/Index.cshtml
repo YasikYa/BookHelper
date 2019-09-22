@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Upload the file</h2>
+<h2>Upload the file or @Html.ActionLink("choose", "DisplayFiles") from alredy loaded</h2>
 
 @using(Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
