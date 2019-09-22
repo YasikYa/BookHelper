@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Security.Claims;
 using Microsoft.Owin.Security;
+using MyVocabulary.FileData.Concrete;
 
 namespace MyVocabulary.Controllers
 {
@@ -89,6 +90,8 @@ namespace MyVocabulary.Controllers
                         IsPersistent = false
                     }, ident);
 
+                    CreateVocabulary(user.UserName);
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -122,6 +125,14 @@ namespace MyVocabulary.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        private void CreateVocabulary(string userName)
+        {
+            string path = MyVocabulary.Useful.ServerPath.MapUserVocabularyPath(userName);
+            
+            LearnedWordXmlSource vocabulary = new LearnedWordXmlSource(path);
+            vocabulary.Save();
         }
         #endregion
     }

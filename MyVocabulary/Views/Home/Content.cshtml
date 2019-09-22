@@ -1,27 +1,40 @@
 ﻿@using MyVocabulary.Models
-@model IEnumerable<WordInfo>
+@using MyVocabulary.Models.ViewModels
+@model ContentViewModel
 @{
     ViewBag.Title = "Content";
     int number = 1;
 }
 
 <h2>Content</h2>
-<table>
-    <tr>
-        <td>Number</td>
-        <td>Word</td>
-        <td>Count</td>
-    </tr>
-    @foreach(var entry in Model)
-    {
+@using (Html.BeginForm("AddToLearned", "Word"))
+{
+    <input type="submit" value="Add to learned" />
+    @Html.Hidden("fileId", Model.FileId)
+    <table>
         <tr>
-            <td>@number</td>
-            <td>@entry.WordString</td>
-            <td>@entry.Count</td>
+            <td>Number</td>
+            <td>Word</td>
+            <td>Count</td>
         </tr>
+
+
+        @foreach (var entry in Model.Words)
         {
-            number++;
+
+            <tr>
+                <td>@number</td>
+                <td>@entry.WordString</td>
+                <td>@entry.Count</td>
+                <td>@Html.RadioButton("words", entry.WordString, false)</td>
+            </tr>
+            {
+                number++;
+            }
         }
-    }
-</table>
+
+    </table>
+
+}
+
 

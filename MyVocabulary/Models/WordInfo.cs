@@ -16,6 +16,7 @@ namespace MyVocabulary.Models
         public WordStatus Status { get; set; }
     }
 
+    [Serializable]
     public enum WordStatus : byte
     {
         NotLearned,

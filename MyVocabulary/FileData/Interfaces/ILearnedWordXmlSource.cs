@@ -9,6 +9,6 @@ namespace MyVocabulary.FileData.Interfaces
 {
     interface ILearnedWordXmlSource : ISource<LearnWord>
     {
-        bool IsLearned(string word);
+        bool IsLearned(string word, out LearnWord result);
     }
 }

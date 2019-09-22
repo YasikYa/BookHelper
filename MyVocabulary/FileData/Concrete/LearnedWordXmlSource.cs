@@ -17,16 +17,16 @@ namespace MyVocabulary.FileData.Concrete
             _serializer = new XmlSerializer(typeof(List<LearnWord>));
         }
 
-        public bool IsLearned(string word)
+        public bool IsLearned(string word, out LearnWord result)
         {
-            return ((SortedSet<LearnWord>)items).Contains(new LearnWord { WordString = word });
+            return ((SortedSet<LearnWord>)items).TryGetValue(new LearnWord { WordString = word },out result);
         }
 
         public override void Save()
         {
-            using(var stream = System.IO.File.Open(_filePath, System.IO.FileMode.Open))
+            List<LearnWord> obj = items.ToList();
+            using (var stream = System.IO.File.Open(_filePath, System.IO.FileMode.Create))
             {
-                List<LearnWord> obj = items.ToList();
                 _serializer.Serialize(stream, obj);
             }
         }
@@ -43,8 +43,8 @@ namespace MyVocabulary.FileData.Concrete
             }
             else
             {
-                var stream = System.IO.File.Create(_filePath);
-                stream.Close();
+                //var stream = System.IO.File.Create(_filePath);
+                //stream.Close();
                 return new SortedSet<LearnWord>(new LearnWordComparer());
             }
         }

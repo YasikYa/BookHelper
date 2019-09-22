@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ArrayOfLearnWord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LearnWord>
+    <WordString>continue</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>text</WordString>
+    <Documents>
+      <int>14</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>virtual</WordString>
+    <Documents>
+      <int>15</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>модель</WordString>
+    <Documents>
+      <int>10</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>моделювання</WordString>
+    <Documents>
+      <int>11</int>
+    </Documents>
+  </LearnWord>
+</ArrayOfLearnWord>

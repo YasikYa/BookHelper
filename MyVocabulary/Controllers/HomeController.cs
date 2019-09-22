@@ -15,6 +15,7 @@ using MyVocabulary.Useful;
 using MyVocabulary.IdentityConfig;
 using MyVocabulary.FileData.Concrete;
 using MyVocabulary.Models;
+using MyVocabulary.Models.ViewModels;
 
 namespace MyVocabulary.Controllers
 {
@@ -34,7 +35,7 @@ namespace MyVocabulary.Controllers
         public ActionResult Upload(HttpPostedFileBase upload)
         {
             string filePath = SaveFile(upload);
-            string xmlFilePath;
+            int fileId;
 
             _parser = new TextWorker(new FileProcceserFactory(filePath),
                 new StopwordsWordValidator(new DefaultWordValidator()),
@@ -54,14 +55,20 @@ namespace MyVocabulary.Controllers
                 _context.Files.Add(file);
                 _context.SaveChanges();
 
-                xmlFilePath = ServerPath.MapDocumentPath(file.FileId.ToString());
+                fileId = file.FileId;
             }
 
-            WordInfoXmlSource source = new WordInfoXmlSource(xmlFilePath);
+            WordInfoXmlSource source = new WordInfoXmlSource(ServerPath.MapDocumentPath(fileId.ToString()));
             source.AddRange(ConvertToWordInfo(_parser.CountWords()));
             source.Save();
 
-            return View("Content", model: source.GetAll().ToList());
+            var model = new ContentViewModel
+            {
+                FileId = fileId,
+                Words = source.GetAll().ToList()
+            };
+
+            return View("Content", model);
         }
 
         [Authorize]
@@ -77,12 +84,17 @@ namespace MyVocabulary.Controllers
             }
         }
 
+        //TODO: change XmlSource to GetNotLearned()
         [Authorize]
         public ActionResult Load(int fileId)
         {
             string filePath = ServerPath.MapDocumentPath(fileId.ToString());
             WordInfoXmlSource source = new WordInfoXmlSource(filePath);
-            var model = source.GetAll().ToList();
+            var model = new ContentViewModel
+            {
+                FileId = fileId,
+                Words = source.GetAll().ToList()
+            };
             return View("Content", model);
         }
 
@@ -113,6 +125,8 @@ namespace MyVocabulary.Controllers
 
         private List<WordInfo> ConvertToWordInfo(IEnumerable<KeyValuePair<string, int>> wordsCount)
         {
+            LearnWord kostyl;
+
             LearnedWordXmlSource source = 
                 new LearnedWordXmlSource(ServerPath.MapUserVocabularyPath(User.Identity.Name));
             List<WordInfo> wordsInfo = new List<WordInfo>(wordsCount.Count());
@@ -120,7 +134,7 @@ namespace MyVocabulary.Controllers
             {
                 WordInfo word = new WordInfo { WordString = pair.Key, Count = pair.Value };
 
-                if (source.IsLearned(pair.Key))
+                if (source.IsLearned(pair.Key, out kostyl))
                 {
                     word.Status = WordStatus.Learned;
                 }

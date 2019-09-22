@@ -20,7 +20,7 @@ namespace MyVocabulary.FileData.Concrete
 
         public override void Save()
         {
-            using(var stream = System.IO.File.Open(_filePath, FileMode.Open))
+            using(var stream = System.IO.File.Open(_filePath, FileMode.Create))
             {
                 _serializer.Serialize(stream, (List<WordInfo>)items);
             }
@@ -37,8 +37,8 @@ namespace MyVocabulary.FileData.Concrete
             }
             else
             {
-                var stream = System.IO.File.Create(_filePath);
-                stream.Close();
+                //var stream = System.IO.File.Create(_filePath);
+                //stream.Close();
                 return new List<WordInfo>();
             }
         }
