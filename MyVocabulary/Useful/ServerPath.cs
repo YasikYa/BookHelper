@@ -12,5 +12,10 @@ namespace MyVocabulary.Useful
         {
             return @"E:\Programming\WeB\MyVocabulary\MyVocabulary\Files\Documents\" + docId + ".xml";
         }
+
+        public static string MapUserVocabularyPath(string userName)
+        {
+            return @"E:\Programming\WeB\MyVocabulary\MyVocabulary\Files\UserVocabulares\" + userName + ".xml";
+        }
     }
 }

@@ -213,8 +213,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccauntController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="FileData\Concrete\LearnedWordXmlSource.cs" />
     <Compile Include="FileData\Concrete\WordInfoXmlSource.cs" />
     <Compile Include="FileData\Concrete\XmlSourceBase.cs" />
+    <Compile Include="FileData\Interfaces\ILearnedWordXmlSource.cs" />
     <Compile Include="FileData\Interfaces\ISource.cs" />
     <Compile Include="FileData\Interfaces\IWordInfoSource.cs" />
     <Compile Include="Global.asax.cs">
@@ -230,6 +232,7 @@
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\Extension.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\LearnWord.cs" />
     <Compile Include="Models\ViewModels\LoginModel.cs" />
     <Compile Include="Models\ViewModels\SignupModel.cs" />
     <Compile Include="Models\WordInfo.cs" />

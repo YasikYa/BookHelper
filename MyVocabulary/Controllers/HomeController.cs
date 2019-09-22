@@ -113,10 +113,23 @@ namespace MyVocabulary.Controllers
 
         private List<WordInfo> ConvertToWordInfo(IEnumerable<KeyValuePair<string, int>> wordsCount)
         {
+            LearnedWordXmlSource source = 
+                new LearnedWordXmlSource(ServerPath.MapUserVocabularyPath(User.Identity.Name));
             List<WordInfo> wordsInfo = new List<WordInfo>(wordsCount.Count());
             foreach(var pair in wordsCount)
             {
-                wordsInfo.Add(new WordInfo { WordString = pair.Key, Count = pair.Value });
+                WordInfo word = new WordInfo { WordString = pair.Key, Count = pair.Value };
+
+                if (source.IsLearned(pair.Key))
+                {
+                    word.Status = WordStatus.Learned;
+                }
+                else
+                {
+                    word.Status = WordStatus.NotLearned;
+                }
+
+                wordsInfo.Add(word);
             }
             return wordsInfo;
         }
