@@ -18,6 +18,11 @@ namespace MyVocabulary.FileData.Concrete
             _serializer = new XmlSerializer(typeof(List<WordInfo>));
         }
 
+        public IEnumerable<WordInfo> GetNotLearned()
+        {
+            return items.Where(i => i.Status == WordStatus.NotLearned).ToList();
+        }
+
         public override void Save()
         {
             using(var stream = System.IO.File.Open(_filePath, FileMode.Create))

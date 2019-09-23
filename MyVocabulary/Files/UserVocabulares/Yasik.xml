@@ -1,15 +1,123 @@
 <?xml version="1.0"?>
 <ArrayOfLearnWord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LearnWord>
+    <WordString>bore</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>class</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>code</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
     <WordString>continue</WordString>
     <Documents>
       <int>16</int>
     </Documents>
   </LearnWord>
   <LearnWord>
+    <WordString>december</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>demonstration</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>draft</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>function</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>list</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>mechanic</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>object</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>page</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>program</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>simple</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>statement</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
     <WordString>text</WordString>
     <Documents>
       <int>14</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>tutorial</WordString>
+    <Documents>
+      <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>value</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>variable</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>vector</WordString>
+    <Documents>
+      <int>17</int>
     </Documents>
   </LearnWord>
   <LearnWord>

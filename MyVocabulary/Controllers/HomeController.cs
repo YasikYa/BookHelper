@@ -93,7 +93,7 @@ namespace MyVocabulary.Controllers
             var model = new ContentViewModel
             {
                 FileId = fileId,
-                Words = source.GetAll().ToList()
+                Words = source.GetNotLearned()
             };
             return View("Content", model);
         }

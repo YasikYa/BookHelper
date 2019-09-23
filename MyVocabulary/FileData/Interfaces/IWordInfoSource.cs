@@ -9,6 +9,6 @@ namespace MyVocabulary.FileData.Interfaces
 {
     interface IWordInfoSource : ISource<WordInfo>
     {
-
+        IEnumerable<WordInfo> GetNotLearned();
     }
 }

@@ -22,13 +22,13 @@
     <WordString>simple</WordString>
     <Count>1</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>demonstration</WordString>
     <Count>1</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>virtual</WordString>
@@ -40,19 +40,19 @@
     <WordString>mechanic</WordString>
     <Count>1</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>tutorial</WordString>
     <Count>1</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>bore</WordString>
     <Count>1</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>zzzzz</WordString>
@@ -70,6 +70,6 @@
     <WordString>page</WordString>
     <Count>1</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
 </ArrayOfWordInfo>

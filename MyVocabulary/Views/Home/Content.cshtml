@@ -26,7 +26,7 @@
                 <td>@number</td>
                 <td>@entry.WordString</td>
                 <td>@entry.Count</td>
-                <td>@Html.RadioButton("words", entry.WordString, false)</td>
+                <td><input type="checkbox" name="words" value="@entry.WordString" /></td>
             </tr>
             {
                 number++;
