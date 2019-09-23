@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ArrayOfLearnWord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LearnWord>
+    <WordString>world</WordString>
+    <Documents>
+      <int>18</int>
+    </Documents>
+  </LearnWord>
+</ArrayOfLearnWord>

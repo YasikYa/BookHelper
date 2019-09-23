@@ -11,11 +11,11 @@ namespace MyVocabulary.FileData.Concrete
 {
     public class WordInfoXmlSource : XmlSourceBase<WordInfo>, IWordInfoSource
     {
-        private XmlSerializer _serializer;
+        //private XmlSerializer _serializer;
 
         public WordInfoXmlSource(string filePath) : base(filePath)
         {
-            _serializer = new XmlSerializer(typeof(List<WordInfo>));
+            //_serializer = new XmlSerializer(typeof(List<WordInfo>));
         }
 
         public IEnumerable<WordInfo> GetNotLearned()
@@ -23,29 +23,27 @@ namespace MyVocabulary.FileData.Concrete
             return items.Where(i => i.Status == WordStatus.NotLearned).ToList();
         }
 
-        public override void Save()
-        {
-            using(var stream = System.IO.File.Open(_filePath, FileMode.Create))
-            {
-                _serializer.Serialize(stream, (List<WordInfo>)items);
-            }
-        }
+        //public override void Save()
+        //{
+        //    using (var stream = System.IO.File.Open(_filePath, FileMode.Create))
+        //    {
+        //        _serializer.Serialize(stream, (List<WordInfo>)items);
+        //    }
+        //}
 
-        protected override ICollection<WordInfo> Load()
-        {
-            if (System.IO.File.Exists(_filePath))
-            {
-                using (var stream = System.IO.File.Open(_filePath, FileMode.Open))
-                {
-                    return _serializer.Deserialize(stream) as List<WordInfo>;
-                }
-            }
-            else
-            {
-                //var stream = System.IO.File.Create(_filePath);
-                //stream.Close();
-                return new List<WordInfo>();
-            }
-        }
+        //protected override ICollection<WordInfo> Load()
+        //{
+        //    if (System.IO.File.Exists(_filePath))
+        //    {
+        //        using (var stream = System.IO.File.Open(_filePath, FileMode.Open))
+        //        {
+        //            return _serializer.Deserialize(stream) as List<WordInfo>;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return new List<WordInfo>();
+        //    }
+        //}
     }
 }

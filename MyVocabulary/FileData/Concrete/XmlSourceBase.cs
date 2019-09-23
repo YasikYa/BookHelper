@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyVocabulary.FileData.Interfaces;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace MyVocabulary.FileData.Concrete
 {
     public abstract class XmlSourceBase<T> : ISource<T>
     {
         private ICollection<T> internalState;
-
-        protected string _filePath;
+        private XmlSerializer _serializer;
+        private string _filePath;
 
         protected ICollection<T> items
         {
@@ -28,9 +30,10 @@ namespace MyVocabulary.FileData.Concrete
             }
         }
 
-        public XmlSourceBase(string filePath)
+        protected XmlSourceBase(string filePath)
         {
             _filePath = filePath;
+            _serializer = new XmlSerializer(typeof(List<T>));
         }
 
         public void Add(T item)
@@ -64,9 +67,29 @@ namespace MyVocabulary.FileData.Concrete
             items.Remove(item);
         }
 
-        public abstract void Save();
+        public virtual void Save()
+        {
+            List<T> obj = items.ToList();
+            using (var stream = System.IO.File.Open(_filePath, FileMode.Create))
+            {
+                _serializer.Serialize(stream, obj);
+            }
+        }
 
-        protected abstract ICollection<T> Load();
+        protected virtual ICollection<T> Load()
+        {
+            if (System.IO.File.Exists(_filePath))
+            {
+                using (var stream = System.IO.File.Open(_filePath, FileMode.Open))
+                {
+                    return _serializer.Deserialize(stream) as List<T>;
+                }
+            }
+            else
+            {
+                return new List<T>();
+            }
+        }
 
     }
 }

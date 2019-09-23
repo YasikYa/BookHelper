@@ -1,9 +1,21 @@
 <?xml version="1.0"?>
 <ArrayOfLearnWord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <LearnWord>
+    <WordString>array</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
     <WordString>bore</WordString>
     <Documents>
       <int>16</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>call</WordString>
+    <Documents>
+      <int>17</int>
     </Documents>
   </LearnWord>
   <LearnWord>
@@ -38,6 +50,12 @@
   </LearnWord>
   <LearnWord>
     <WordString>draft</WordString>
+    <Documents>
+      <int>17</int>
+    </Documents>
+  </LearnWord>
+  <LearnWord>
+    <WordString>element</WordString>
     <Documents>
       <int>17</int>
     </Documents>

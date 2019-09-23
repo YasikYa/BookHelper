@@ -94,7 +94,7 @@
     <WordString>element</WordString>
     <Count>629</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>type</WordString>
@@ -142,7 +142,7 @@
     <WordString>call</WordString>
     <Count>446</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>following</WordString>
@@ -154,7 +154,7 @@
     <WordString>array</WordString>
     <Count>375</Count>
     <MyProperty>0</MyProperty>
-    <Status>NotLearned</Status>
+    <Status>Learned</Status>
   </WordInfo>
   <WordInfo>
     <WordString>parameter</WordString>
